@@ -1,7 +1,5 @@
 package ac.test.model.mongodb;
 
-import java.io.UnsupportedEncodingException;
-
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;
 
@@ -18,7 +16,7 @@ public class MongoDbProvider implements Provider<Datastore> {
 	private final String db;
 
 	@Inject
-	MongoDbProvider(@Named("connection.url") String url, @Named("connection.db") String db) throws UnsupportedEncodingException {
+	MongoDbProvider(@Named("connection.url") String url, @Named("connection.db") String db){
 		this.url = url;
 		this.db = db;
 	}

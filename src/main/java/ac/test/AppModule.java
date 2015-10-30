@@ -3,6 +3,7 @@ package ac.test;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import java.util.logging.Logger;
 
 import ac.test.service.AppService;
 import ac.test.service.AppServiceImpl;
@@ -10,7 +11,6 @@ import ac.test.service.AppServiceImpl;
 import com.google.inject.AbstractModule;
 import com.google.inject.Singleton;
 import com.google.inject.name.Names;
-import com.sun.istack.internal.logging.Logger;
 
 public class AppModule extends AbstractModule {
 
@@ -28,7 +28,7 @@ public class AppModule extends AbstractModule {
 			properties.load(stream);
 			Names.bindProperties(binder(), properties);
 		} catch (IOException e) {
-			Logger.getLogger(AppModule.class).severe(
+			Logger.getLogger(AppModule.class.getName()).severe(
 					"I/O Exception during loading configuration");
 		}
 

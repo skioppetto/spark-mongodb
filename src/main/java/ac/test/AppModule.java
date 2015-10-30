@@ -4,9 +4,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import org.mongodb.morphia.Datastore;
-
-import ac.test.model.mongodb.MongoDbProvider;
 import ac.test.service.AppService;
 import ac.test.service.AppServiceImpl;
 

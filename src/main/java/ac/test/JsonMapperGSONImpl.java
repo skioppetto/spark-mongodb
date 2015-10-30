@@ -14,7 +14,7 @@ import com.google.inject.Provider;
 
 class JsonMapperGSONImpl implements Provider<JsonMapper>, JsonMapper {
 
-	private Gson gson;
+	private final Gson gson;
 
 	JsonMapperGSONImpl() {
 		GsonBuilder gsonBuilder = new GsonBuilder();

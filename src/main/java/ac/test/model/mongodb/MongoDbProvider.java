@@ -13,7 +13,7 @@ import com.mongodb.MongoClientURI;
 
 public class MongoDbProvider implements Provider<Datastore> {
 
-	private Morphia morphia = new Morphia();
+	private final Morphia morphia = new Morphia();
 	private String url;
 
 	@Inject

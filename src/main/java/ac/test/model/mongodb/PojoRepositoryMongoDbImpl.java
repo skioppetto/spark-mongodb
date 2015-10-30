@@ -14,10 +14,14 @@ import com.google.inject.Inject;
 import com.mongodb.WriteResult;
 
 class PojoRepositoryMongoDbImpl implements PojoRepository {
+	
+	private final Datastore dataStore;
 
 	@Inject
-	private Datastore dataStore;
-
+	public PojoRepositoryMongoDbImpl(Datastore dataStore) {
+		this.dataStore = dataStore;
+	}
+	
 	@Override
 	public Pojo get(String id) {
 		return dataStore.get(Pojo.class, new ObjectId(id));

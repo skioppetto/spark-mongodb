@@ -1,7 +1,5 @@
 package ac.test;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -17,6 +15,7 @@ import ac.test.service.AppServiceImpl;
 import com.google.inject.AbstractModule;
 import com.google.inject.Singleton;
 import com.google.inject.name.Names;
+import com.sun.istack.internal.logging.Logger;
 
 public class AppModule extends AbstractModule {
 
@@ -26,15 +25,16 @@ public class AppModule extends AbstractModule {
 		// load configuration
 		Properties properties = new Properties();
 		try {
-//			InputStream prop = this.getClass().getResourceAsStream(
-//					"app.properties");
-			properties.load(new FileReader("app.properties"));
+			InputStream stream = AppModule.class.getClassLoader()
+					.getResourceAsStream("app.properties");
+			if (stream == null) {
+				throw new RuntimeException("app.properties cannot be found");
+			}
+			properties.load(stream);
 			Names.bindProperties(binder(), properties);
-		} catch (FileNotFoundException e) {
-			System.out
-					.println("The configuration file Test.properties can not be found");
 		} catch (IOException e) {
-			System.out.println("I/O Exception during loading configuration");
+			Logger.getLogger(AppModule.class).severe(
+					"I/O Exception during loading configuration");
 		}
 
 		// bind services and repos

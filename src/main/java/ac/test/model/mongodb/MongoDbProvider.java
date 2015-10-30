@@ -17,7 +17,7 @@ public class MongoDbProvider implements Provider<Datastore> {
 	private String url;
 
 	@Inject
-	public MongoDbProvider(@Named("connection.url") String url) throws UnsupportedEncodingException {
+	MongoDbProvider(@Named("connection.url") String url) throws UnsupportedEncodingException {
 		this.url = url;
 	}
 

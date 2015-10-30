@@ -2,6 +2,7 @@ package ac.test.model.mongodb;
 
 import java.util.List;
 
+import org.bson.types.ObjectId;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Key;
 
@@ -19,7 +20,7 @@ public class PojoRepositoryMongoDbImpl implements PojoRepository {
 
 	@Override
 	public Pojo get(String id) {
-		return dataStore.get(Pojo.class, id);
+		return dataStore.get(Pojo.class, new ObjectId(id));
 	}
 
 	@Override
@@ -31,7 +32,7 @@ public class PojoRepositoryMongoDbImpl implements PojoRepository {
 	@Override
 	public Pojo createOrUpdate(Pojo toPersist) {
 		Key<Pojo> key = dataStore.save(toPersist);
-		return dataStore.get(Pojo.class, key);
+		return dataStore.get(Pojo.class, key.getId());
 	}
 
 	@Override

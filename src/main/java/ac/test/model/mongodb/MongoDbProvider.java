@@ -1,4 +1,4 @@
-package ac.test.model;
+package ac.test.model.mongodb;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;

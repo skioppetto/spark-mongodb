@@ -37,6 +37,9 @@ public class AppModule extends AbstractModule {
 					"I/O Exception during loading configuration");
 		}
 
+		// bind JSON mapper
+		bind(JsonMapper.class).to(JsonMapperGSONImpl.class).in(Singleton.class);
+
 		// bind services and repos
 		bind(AppService.class).to(AppServiceImpl.class);
 		bind(PojoRepository.class).to(PojoRepositoryMongoDbImpl.class).in(

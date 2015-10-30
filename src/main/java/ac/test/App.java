@@ -37,10 +37,6 @@ public class App {
 			}
 		});
 		Gson gson = gsonBuilder.create();
-		
-		get("/hello", (req, res) -> {
-			return service.hello();
-		});
 
 		get("/:id", (req, res) -> {
 			Pojo pojo = service.get(req.params("id"));

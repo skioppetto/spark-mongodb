@@ -10,10 +10,6 @@ public class AppServiceImpl implements AppService{
 	@Inject
 	private PojoRepository repository;
 	
-	
-	@Override
-	public String hello(){return "Hello World";}
-
 	@Override
 	public Pojo get(String id) {
 		return repository.get(id);

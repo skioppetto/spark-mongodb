@@ -14,17 +14,19 @@ import com.mongodb.MongoClientURI;
 public class MongoDbProvider implements Provider<Datastore> {
 
 	private final Morphia morphia = new Morphia();
-	private String url;
+	private final String url;
+	private final String db;
 
 	@Inject
-	MongoDbProvider(@Named("connection.url") String url) throws UnsupportedEncodingException {
+	MongoDbProvider(@Named("connection.url") String url, @Named("connection.db") String db) throws UnsupportedEncodingException {
 		this.url = url;
+		this.db = db;
 	}
 
 	@Override
 	public Datastore get() {
 		MongoClientURI uri = new MongoClientURI(url);
-		return morphia.createDatastore(new MongoClient(uri), "testdb");
+		return morphia.createDatastore(new MongoClient(uri), db);
 	}
 
 }

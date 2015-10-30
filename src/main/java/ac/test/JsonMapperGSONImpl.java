@@ -12,7 +12,7 @@ import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 import com.google.inject.Provider;
 
-public class JsonMapperGSONImpl implements Provider<JsonMapper>, JsonMapper {
+class JsonMapperGSONImpl implements Provider<JsonMapper>, JsonMapper {
 
 	private Gson gson;
 

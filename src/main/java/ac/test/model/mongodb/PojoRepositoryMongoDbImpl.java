@@ -13,7 +13,7 @@ import ac.test.model.PojoRepository;
 import com.google.inject.Inject;
 import com.mongodb.WriteResult;
 
-public class PojoRepositoryMongoDbImpl implements PojoRepository {
+class PojoRepositoryMongoDbImpl implements PojoRepository {
 
 	@Inject
 	private Datastore dataStore;

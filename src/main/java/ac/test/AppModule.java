@@ -6,9 +6,7 @@ import java.util.Properties;
 
 import org.mongodb.morphia.Datastore;
 
-import ac.test.model.PojoRepository;
 import ac.test.model.mongodb.MongoDbProvider;
-import ac.test.model.mongodb.PojoRepositoryMongoDbImpl;
 import ac.test.service.AppService;
 import ac.test.service.AppServiceImpl;
 
@@ -42,12 +40,7 @@ public class AppModule extends AbstractModule {
 
 		// bind services and repos
 		bind(AppService.class).to(AppServiceImpl.class);
-		bind(PojoRepository.class).to(PojoRepositoryMongoDbImpl.class).in(
-				Singleton.class);
 
-		// used by mongodb repository implementation
-		bind(Datastore.class).toProvider(MongoDbProvider.class)
-				.asEagerSingleton();
 	}
 
 }

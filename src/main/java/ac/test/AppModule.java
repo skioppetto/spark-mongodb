@@ -6,9 +6,9 @@ import java.util.Properties;
 
 import org.mongodb.morphia.Datastore;
 
-import ac.test.model.MongoDbProvider;
 import ac.test.model.PojoRepository;
-import ac.test.model.PojoRepositoryMongoDbImpl;
+import ac.test.model.mongodb.MongoDbProvider;
+import ac.test.model.mongodb.PojoRepositoryMongoDbImpl;
 import ac.test.service.AppService;
 import ac.test.service.AppServiceImpl;
 
